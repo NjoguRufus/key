@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key-Company Farming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+</head>
+<body class="bg-green-50">
+    <header class="bg-green-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Key-Company</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:text-green-200">Home</a></li>
+                    <li><a href="#products" class="hover:text-green-200">Products</a></li>
+                    <li><a href="#about" class="hover:text-green-200">About</a></li>
+                    <li><a href="#contact" class="hover:text-green-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="py-20 text-center">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold mb-4">Welcome to Key-Company Farming</h2>
+                <p class="text-xl mb-8">Bringing fresh, sustainable produce to your table</p>
+                <a href="#products" class="bg-green-600 text-white py-2 px-6 rounded-full hover:bg-green-700 transition duration-300">Explore Our Products</a>
+            </div>
+        </section>
+
+        <section id="products" class="py-20 bg-white">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Our Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="product-card bg-green-100 p-6 rounded-lg shadow-md">
+                        <img src="/api/placeholder/300/200" alt="Tomatoes" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Tomatoes</h3>
+                        <p>Fresh, juicy tomatoes perfect for salads and cooking.</p>
+                    </div>
+                    <div class="product-card bg-green-100 p-6 rounded-lg shadow-md">
+                        <img src="/api/placeholder/300/200" alt="French Beans" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold mb-2">French Beans</h3>
+                        <p>Crisp and tender French beans, a versatile side dish.</p>
+                    </div>
+                    <div class="product-card bg-green-100 p-6 rounded-lg shadow-md">
+                        <img src="/api/placeholder/300/200" alt="Capsicum" class="w-full h-48 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Capsicum</h3>
+                        <p>Colorful and crunchy capsicum, great for stir-fries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-green-100">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">About Key-Company</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto">Key-Company is committed to sustainable farming practices, bringing you the freshest produce while caring for our environment. Our team of dedicated farmers works tirelessly to ensure the highest quality in every harvest.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+                <form class="max-w-lg mx-auto">
+                    <div class="mb-4">
+                        <label for="name" class="block mb-2">Name</label>
+                        <input type="text" id="name" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2">Email</label>
+                        <input type="email" id="email" class="w-full p-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block mb-2">Message</label>
+                        <textarea id="message" class="w-full p-2 border rounded" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-green-600 text-white py-2 px-6 rounded-full hover:bg-green-700 transition duration-300">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-green-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Key-Company Farming. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add some interactivity with GSAP
+        gsap.from(".product-card", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#products",
+                start: "top center"
+            }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
