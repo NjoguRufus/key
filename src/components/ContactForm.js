@@ -16,13 +16,14 @@ const ContactForm = () => {
         setError('');
 
         try {
-            const response = await fetch('https://servernodemil.onrender.com/send-email', { // Update the URL if your backend runs on a different port
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+          const response = await fetch('https://servernodemil.onrender.com/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        
 
             if (response.ok) {
                 alert('Thank you for your message! We will get back to you soon.');
